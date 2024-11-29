@@ -1,0 +1,92 @@
+
+.card-img-top {
+    width: 200px; 
+    height: 200px; 
+    object-fit: cover; 
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  nav ul {
+    display: flex;
+    gap: 15px;
+  }
+  
+  nav a:hover {
+    text-decoration: underline;
+  }
+
+
+  header {
+    background-color: #52131d;  
+  }
+  
+  header .text-white {
+    color: rgb(232, 225, 225) ; 
+  }
+  
+
+ */
+  
+  footer p {
+    margin: 0;
+    font-size: 14px;
+  }
+
+  
+footer, header {
+  text-align: center;
+}
+
+  
+
+
+html, body {
+  height: 100%; /* Make sure the body and HTML take full height */
+}
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; 
+}
+
+main {
+  flex: 1; 
+}
+
+footer {
+  background-color: #52131d; 
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+
+  width: 100%;
+  position: fixed; 
+  bottom: 0; 
+  width: 100%; 
+  z-index: 1000; 
+}
+
+.contact-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: calc(100vh - 200px); /* Adjust to account for header and footer heights */
+}
+
+form {
+  max-width: 400px; 
+  width: 100%; /* Make it responsive */
+  padding: 20px;
+  background-color: #52131d; 
+  color: white;
+  border-radius: 8px;
+  
+}
+
