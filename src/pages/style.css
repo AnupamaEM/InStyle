@@ -1,10 +1,4 @@
 
-.card-img-top {
-    width: 200px; 
-    height: 200px; 
-    object-fit: cover; 
-  }
-
   * {
     margin: 0;
     padding: 0;
@@ -20,7 +14,6 @@
     text-decoration: underline;
   }
 
-
   header {
     background-color: #52131d;  
   }
@@ -30,8 +23,7 @@
   }
   
 
- */
-  
+ *
   footer p {
     margin: 0;
     font-size: 14px;
@@ -42,11 +34,8 @@ footer, header {
   text-align: center;
 }
 
-  
-
-
-html, body {
-  height: 100%; /* Make sure the body and HTML take full height */
+html, body { 
+  height: 100%; 
 }
 
 .layout {
@@ -77,16 +66,109 @@ footer {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  min-height: calc(100vh - 200px); /* Adjust to account for header and footer heights */
+  min-height: calc(100vh - 200px); 
 }
 
+
+/*form*/
 form {
   max-width: 400px; 
-  width: 100%; /* Make it responsive */
+  width: 100%;
   padding: 20px;
   background-color: #52131d; 
   color: white;
   border-radius: 8px;
   
 }
+
+.card {
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px #52131d;
+  transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px #52131d;
+}
+
+.card-body {
+  padding: 2rem;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.card-text {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+.card {
+  border: 1px solid #ddd; 
+  border-radius: 8px; 
+  padding: 20px;
+  box-shadow: 0 4px 8px #52131d; 
+ 
+}
+/*form*/
+
+
+.card-title {
+  font-size: 1.25rem; 
+  font-weight: bold;
+  color: #333; 
+}
+
+
+.card-text {
+  font-size: 1rem;
+  color: #52131d; 
+}
+
+
+.row > .col-lg-4, .row > .col-md-4 {
+  margin-bottom: 20px; 
+}
+
+
+@media (max-width: 768px) {
+  .card {
+    padding: 15px; 
+  }
+}
+
+/*home image */
+.card {
+  
+  border-radius: 7px;
+  
+  box-shadow:#52131d;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card-img-top {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 1rem;
+}
+
+/*home image */
+
+
+
+
 

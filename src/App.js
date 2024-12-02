@@ -1,7 +1,7 @@
 import React  from 'react';
 
-// import Header from "./Header";
-// import Footer from "./Footer";
+import Header from "./pages/Header";
+import Footer from "./pages/Footer";
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import AboutPage from './pages/AboutPage';
@@ -15,7 +15,7 @@ const App = () =>{
       <div className="main-content">
       
       <Routes>
-        <Route path="/home" element={ <HomePage/> } />
+        <Route path="/" element={ <HomePage/> } />
         <Route path="/about" element={ <AboutPage/> } />
         <Route path="/contact" element={ <Contact/> } />
       </Routes>

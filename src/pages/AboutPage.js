@@ -1,6 +1,8 @@
+
 import React from "react";
 import Header from "./Header"; 
 import Footer from "./Footer";
+import "./style.css";
 
 const AboutPage = () => {
   return (
@@ -17,6 +19,42 @@ const AboutPage = () => {
             Our mission is to make fashion affordable and accessible to everyone.
           </p>
         </section>
+
+        
+        <section className="row text-center mt-5">
+          <div className="col-lg-4 col-md-4 col-sm-12 mb-4">
+            <div className="card">
+              <div className="card-body">
+                <h5 className="card-title">Mission</h5>
+                <p className="card-text">
+                  Our mission is to make fashion accessible to all, regardless of budget, with high-quality and stylish options.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="col-lg-4 col-md-4 col-sm-12 mb-4">
+            <div className="card">
+              <div className="card-body">
+                <h5 className="card-title">Vision</h5>
+                <p className="card-text">
+                  Our vision is to become the leading brand in the fashion industry, offering trendy and timeless pieces.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="col-lg-4 col-md-4 col-sm-12 mb-4">
+            <div className="card">
+              <div className="card-body">
+                <h5 className="card-title">Values</h5>
+                <p className="card-text">
+                  We believe in quality, sustainability, and inclusivity to create a better world through fashion.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
       <Footer />
     </>
@@ -24,3 +62,5 @@ const AboutPage = () => {
 };
 
 export default AboutPage;
+
+
