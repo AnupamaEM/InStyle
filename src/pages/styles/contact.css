@@ -1,0 +1,18 @@
+
+.contact-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: calc(100vh - 200px);
+  }
+  
+  form {
+    max-width: 400px;
+    width: 100%;
+    padding: 20px;
+    background-color: #52131d;
+    color: white;
+    border-radius: 8px;
+  }
+  

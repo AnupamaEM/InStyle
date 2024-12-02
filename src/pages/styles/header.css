@@ -1,0 +1,18 @@
+
+header {
+  background-color:#52131d;
+  text-align: center;
+}
+
+header .text-white {
+  color: rgb(232, 225, 225);
+}
+
+nav ul {
+  display: flex;
+  gap: 15px;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
