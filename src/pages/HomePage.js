@@ -40,7 +40,7 @@ const HomePage = () => {
 
           
           <div className="row">
-            {products.slice(0, 6).map((product, index) => (
+            {products.slice(0,6).map((product, index) => (
               <div className="col-12 col-md-4 col-lg-2 mb-4" key={index}>
                 <div className="card">
                   <img
@@ -54,6 +54,7 @@ const HomePage = () => {
                 </div>
               </div>
             ))}
+            
           </div>
           <div className="row">
             {products.slice(6).map((product, index) => (

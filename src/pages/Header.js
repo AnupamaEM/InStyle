@@ -10,6 +10,7 @@ const Header = () => {
         <h1 className="text-white">Fashion Store</h1>
         <nav>
           <ul className="nav flex-column">
+
             <li className="nav-item mb-3">
               <Link to="/" className="nav-link text-white ">Home</Link>
             </li>
@@ -19,6 +20,10 @@ const Header = () => {
             <li className="nav-item mb-3">
               <Link to="/contact" className="nav-link text-white ">Contact</Link>
             </li>
+            <li className="nav-item mb-3">
+              <Link to="/table" className="nav-link text-white ">Table</Link>
+            </li>
+
           </ul>
         </nav>
       </div>

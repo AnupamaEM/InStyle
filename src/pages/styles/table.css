@@ -1,0 +1,51 @@
+.table-container {
+    max-width: 100%;
+    font-family: Arial;
+  }
+  
+  table {
+    width: 100%;
+    text-align: center;
+    background-color: #caced3;
+    
+  }
+  
+  thead {
+    background-color: #b63450;
+    color: white;
+  }
+  
+  thead th {
+    padding: 15px;
+    border: 1px solid #dee2e6;
+  }
+  
+  
+  tbody td {
+    padding: 12px;
+    border: 1px solid #dee2e6;
+  }
+  
+  tfoot {
+    background-color: #f1f3f5;
+    font-weight: bold;
+  }
+  
+  tfoot th {
+    padding: 10px;
+    border: 1px solid #dee2e6;
+    text-align: center;
+  }
+  
+  td,
+  th {
+    text-align: center;
+  }
+  
+  table th,
+  table td {
+    border-right: 1px solid #dee2e6;
+  }
+  
+
+  
