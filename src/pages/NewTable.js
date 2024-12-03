@@ -19,26 +19,21 @@ const defaultData = [
   { firstName: 'ivy', lastName: 'rae', age: 24, job:'non-it'},
 ];
 
-/**
- * @typedef {Object} Person
- * @property {string} firstName 
- * @property {string} lastName 
- * @property {number} age 
- * @property {string} job 
- */
+// /**
+//  * @typedef {Object} Person
+//  * @property {string} firstName 
+//  * @property {string} lastName 
+//  * @property {number} age 
+//  * @property {string} job 
+//  */
 
 const columnHelper = createColumnHelper();
 
 const columns = [
   columnHelper.accessor('firstName', { header: 'First Name', footer: info => info.column.id }),
-  columnHelper.accessor('lastName', {
-    header: () => <span>Last Name</span>,
-    footer: info => info.column.id,
-    cell: info => <i>{info.getValue()}</i>,
-  }),
+  columnHelper.accessor('lastName',{ header: 'Last Name', footer: info => info.column.id }),
   columnHelper.accessor('age', { header: 'Age', footer: info => info.column.id }),
   columnHelper.accessor('job', { header: 'Job', footer: info => info.column.id }),
-
 ];
 
 export default function Table() {
@@ -81,6 +76,8 @@ export default function Table() {
           ))}
         </tbody>
       </table>
-      <Footer />    </div>
+      <Footer />    
+      </div>
   );
 }
+//  export default NewTable;
