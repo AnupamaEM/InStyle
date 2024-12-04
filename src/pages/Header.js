@@ -19,6 +19,7 @@ const Header = () => {
               <Link to="/contact" className="dropdown-link">Contact</Link>
               <Link to="/table" className="dropdown-link">Table</Link>
               <Link to="/form" className="dropdown-link">NewForm</Link>
+              <Link to="/chart" className="dropdown-link">Chart</Link>
             </div>
           </div>
         </nav>
