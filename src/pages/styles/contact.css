@@ -18,4 +18,15 @@
     
   }
 
+.map-container {
+  width: 50%;      
+  height: 400px;   
+  margin: 0 auto;  
+}
+
+#map {
+  width: 100%;    
+  height: 100%;   
+}
+
   

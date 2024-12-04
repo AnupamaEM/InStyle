@@ -8,6 +8,7 @@ import Contact from './pages/Contact';
 import Table from './pages/NewTable';
 import NewForm from './pages/NewForm';
 import Chart from "./pages/Chart";
+import GoogleMap from "./pages/GoogleMap"; 
 
 const App = () =>{
   return ( 

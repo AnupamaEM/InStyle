@@ -3,6 +3,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import "./styles/style.css";
 import "./styles/contact.css";
+import GoogleMap from "./GoogleMap";
 
 const ContactPage = () => {
   return (
@@ -68,7 +69,10 @@ const ContactPage = () => {
         </section>
       </main>
       <br/>
-            <br/>
+      <br/>
+      <GoogleMap />
+      <br/>
+      <br/>
       <Footer />
     </>
   );
