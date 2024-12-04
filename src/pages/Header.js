@@ -1,30 +1,26 @@
 import React from "react";
-import { Link } from "react-router-dom"; 
+import { Link } from "react-router-dom";
 import "./styles/style.css";
 import "./styles/header.css";
 
 const Header = () => {
   return (
-    <header className=" text-white py-3">
-      <div className="container text-center">
+    <header className="text-white py-3 header-container">
+      <div className="container ">
         <h1 className="text-white">Fashion Store</h1>
-        <nav>
-          <ul className="nav flex-column">
-
-            <li className="nav-item mb-3">
-              <Link to="/" className="nav-link text-white ">Home</Link>
-            </li>
-            <li className="nav-item mb-3">
-              <Link to="/about" className="nav-link text-white ">About</Link>
-            </li>
-            <li className="nav-item mb-3">
-              <Link to="/contact" className="nav-link text-white ">Contact</Link>
-            </li>
-            <li className="nav-item mb-3">
-              <Link to="/table" className="nav-link text-white ">Table</Link>
-            </li>
-
-          </ul>
+        <nav className="dropdown container">
+          <div className="dropdown">
+            <button className="dropdown-button">
+              Menu
+            </button>
+            <div className="dropdown-content">
+              <Link to="/" className="dropdown-link">Home</Link>
+              <Link to="/about" className="dropdown-link">About</Link>
+              <Link to="/contact" className="dropdown-link">Contact</Link>
+              <Link to="/table" className="dropdown-link">Table</Link>
+              <Link to="/form" className="dropdown-link">NewForm</Link>
+            </div>
+          </div>
         </nav>
       </div>
     </header>

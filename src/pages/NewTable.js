@@ -1,4 +1,5 @@
 import React from 'react';
+import { useReactTable,getCoreRowModel,flexRender,createColumnHelper,} from '@tanstack/react-table';
 import Header from "./Header";
 import Footer from "./Footer";
 import "./styles/style.css";
@@ -6,17 +7,12 @@ import "./styles/header.css";
 import "./styles/footer.css";
 import "./styles/table.css";
 
-import {
-  useReactTable,
-  getCoreRowModel,
-  flexRender,
-  createColumnHelper,
-} from '@tanstack/react-table';
-
 const defaultData = [
   { firstName: 'jhon', lastName: 'doe', age: 47, job:'it' },
   { firstName: 'amy', lastName: 'lea', age: 22,job:'non-it'  },
   { firstName: 'ivy', lastName: 'rae', age: 24, job:'non-it'},
+  { firstName: 'ivan', lastName: 'rae', age: 23, job:'it'},
+  { firstName: 'alan', lastName: 'don', age: 22,job:'it'  },
 ];
 
 // /**
@@ -30,13 +26,13 @@ const defaultData = [
 const columnHelper = createColumnHelper();
 
 const columns = [
-  columnHelper.accessor('firstName', { header: 'First Name', footer: info => info.column.id }),
+  columnHelper.accessor('firstName', { header: 'First Name',  footer: info => info.column.id }),
   columnHelper.accessor('lastName',{ header: 'Last Name', footer: info => info.column.id }),
   columnHelper.accessor('age', { header: 'Age', footer: info => info.column.id }),
   columnHelper.accessor('job', { header: 'Job', footer: info => info.column.id }),
 ];
 
-export default function Table() {
+ function Table() {
   const [data] = React.useState(() => [...defaultData]);
 
   const table = useReactTable({
@@ -48,7 +44,7 @@ export default function Table() {
   return (
     
     <div className="table-container">
-            <Header />
+    <Header />
 
       <table>
         <thead>
@@ -80,4 +76,4 @@ export default function Table() {
       </div>
   );
 }
-//  export default NewTable;
+export default Table;

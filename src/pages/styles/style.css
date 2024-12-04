@@ -14,39 +14,5 @@ html, body {
   min-height: 80vh;
 }
 
-/* main {
-  flex: 1;
-}
 
-.row > .col-lg-4, .row > .col-md-4 {
-  margin-bottom: 20px;
-} */
-
-
-
-
-/* .card {
-  border-radius: 8px;
-  transition: transform 0.3s ease-in-out;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-}
-
-.card-img-top {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-}
-
-.card-body {
-  padding: 1rem;
-}
-
-@media (max-width: 768px) {
-  .card {
-    padding: 15px;
-  }
-} */
 

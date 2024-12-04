@@ -6,8 +6,8 @@ import AboutPage from './pages/AboutPage';
 import HomePage from './pages/HomePage';
 import Contact from './pages/Contact';
 import Table from './pages/NewTable';
-
-
+import NewForm from './pages/NewForm';
+import Chart from "./pages/Chart";
 
 const App = () =>{
   return ( 
@@ -19,6 +19,8 @@ const App = () =>{
         <Route path="/about" element={ <AboutPage/> } />
         <Route path="/contact" element={ <Contact/> } />
         <Route path="/table" element={ <Table/> } />
+        <Route path="/form" element={ <NewForm/> } />
+        <Route path="/chart" element={ <Chart/> } />
       </Routes>
       
       </div>

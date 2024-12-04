@@ -10,7 +10,7 @@ const ContactPage = () => {
       <Header />
       <main className="container my-4">
         <section className="contact-section">
-          <h2 className="text-center mb-4">Contact Us</h2>
+          
           <p className="lead text-center">
             Have questions?? Reach out us .....
           </p>
