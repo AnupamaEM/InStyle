@@ -4,7 +4,7 @@ import Footer from "./Footer";
 import "./styles/style.css";
 import "./styles/header.css";
 import "./styles/footer.css";
-import { Bar,Line } from 'react-chartjs-2';
+import { Bar } from 'react-chartjs-2';
 import {Chart as ChartJS,CategoryScale,LinearScale,BarElement,Title,Tooltip,Legend,} from 'chart.js';
 
 
@@ -39,14 +39,14 @@ const Chart = () => {
       },
       title: {
         display: true,
-        text: 'Monthly Sales Data',
+        text: 'Yearly sales and marketing data',
       },
     },
   };
   // AIzaSyDuQabTIbxIwshpcYHIaIC0GBTgS4u9h_I
   return (
     <>
-        <Header/>
+    <Header/>
     <div style={{ width: '70%', margin: '0 auto' }}>
       <Bar data={data} options={options} />
     </div>

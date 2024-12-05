@@ -18,7 +18,7 @@ header .text-white {
 .dropdown {
   position: absolute;
   display: inline-block;
-  padding-bottom: 4cm;
+  padding-bottom: 3cm;
   
 }
 .dropdown-button {
@@ -26,9 +26,9 @@ header .text-white {
   color: white;
   padding: 1px 15px;
   border: none;
-  border-radius: 5px;
+  border-radius: 3px;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 14px;
   
 }
 
@@ -37,8 +37,8 @@ header .text-white {
   display: none; 
   position: absolute;
   background-color: white;
-  min-width: 160px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  min-width: 50px;
+  box-shadow: 0 4px 10px #52131d;
   z-index: 1;
   text-align: left;
   border-radius: 5px;
