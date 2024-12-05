@@ -1,28 +1,39 @@
-const mysql = require('mysql2');
-const connection = mysql.createConnection({
-    host: 'localhost', 
-    user: 'nodestudent', 
-    password: 'nodestudent', 
-    database: 'instyle'
+const knex = require('knex');
+
+const db = knex({
+  client: 'mysql2',
+  connection: {
+    host: 'localhost',
+    user: 'nodestudent',
+    password: 'nodestudent',
+    database: 'instyle',
+  },
+ 
 });
 
-connection.connect((err) => {
-    if (err) {
-        console.error('Error connecting to the database:', err.message);
-        return;
-    }
-    console.log('Connected to the MySQL database!');
-});
+// Fetch all dresses
 
-
-connection.query('SELECT * FROM dresses', (err, results) => {
+db('dresses')
+  .select('*')
+  .then((results) => {
     console.log('Results:', results);
-});
+  })
+  .catch((err) => {
+    console.error('something went wrong cant fetch products', err.message);
+  });
 
-const newDress ={name:'yellow dress',cost: 39.99,imagePath:'/images/red.jpg'};
+// Insert a new dress
+const newDress = { name: 'grey Dress', cost: 19, imagePath: '/images/black.jpg' };
 
-connection.query('INSERT INTO dresses SET ?', newDress, (err, results) => {
-    console.log('Inserted new dress with id:', results.insertId);  
-});
+db('dresses')
+  .insert(newDress)
+  .then((id) => {
+    console.log('insertion done :', newDress);
+  })
+  .catch((err) => {
+    console.error('insertion failed for new dress:', err.message);
+  });
 
-connection.end();
+
+
+
