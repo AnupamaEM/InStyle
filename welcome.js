@@ -4,7 +4,6 @@ const app = express();
 const PORT = 3000; 
 app.use(express.json());
 
-
 const db = knex({
     client: 'mysql2',
     connection: {
@@ -13,10 +12,8 @@ const db = knex({
       password: 'nodestudent',
       database: 'instyle',
     },
-   
   });
   
-
 app.get('/', (req, res) => {
   res.send('Hai hello'); 
 });
@@ -43,16 +40,16 @@ app.get('/product/:id', async (req, res) => {
 
 // post products 
 app.post('/product/add',async(req,res)=>{
-    const { name, cost, imagePath } = req.body;
-    const [newProduct] = await db('dresses').insert({name: name,cost: cost,imagePath: imagePath,});
+    const { name, cost, imagePath,description } = req.body;
+    const [newProduct] = await db('dresses').insert({name: name,cost: cost,imagePath: imagePath,description:description});
     res.json({message:'product inserted'});
 });
 
 // update products 
 app.put('/product/update/:id',async(req,res)=>{
     const prid=req.params.id;
-    const { name, cost, imagePath } = req.body;
-    await db('dresses').where({id:prid}).update({name,cost,imagePath})
+    const { name, cost, imagePath,description } = req.body;
+    await db('dresses').where({id:prid}).update({name,cost,imagePath,description})
     res.json({message:'product updated'});
 });
 
