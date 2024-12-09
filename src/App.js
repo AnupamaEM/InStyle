@@ -8,6 +8,7 @@ import Contact from './pages/Contact';
 import Table from './pages/NewTable';
 import NewForm from './pages/NewForm';
 import Chart from "./pages/Chart";
+import AllApis from "./pages/AllApis";
 import GoogleMap from "./pages/GoogleMap"; 
 
 const App = () =>{
@@ -22,6 +23,7 @@ const App = () =>{
         <Route path="/table" element={ <Table/> } />
         <Route path="/form" element={ <NewForm/> } />
         <Route path="/chart" element={ <Chart/> } />
+        <Route path="/allapi" element={ <AllApis/> } />
       </Routes>
       
       </div>
