@@ -49,97 +49,88 @@ import "./styles/productform.css"
 // }
 
 function AddProductForm() {
-  const [name, setName] = useState('');
-  const [cost, setCost] = useState('');
-  const [description, setDescription] = useState('');
-  const [imagePath, setImagePath] = useState('');
-
-  const handleSubmit = async (e) => {
+    const [name, setName] = useState('');
+    const [cost, setCost] = useState('');
+    const [description, setDescription] = useState('');
+    const [imagePath, setImagePath] = useState('');
+  
+    const handleSubmit = async (e) => {
       e.preventDefault();
-
+  
       const product = {
-          name,
-          cost,
-          description,
-          imagePath,
+        name,
+        cost,
+        description,
+        imagePath,
       };
-
-      try {
-          const response = await fetch('http://localhost:3000/product/add', {
-              method: 'POST',
-              headers: {
-                  'Content-Type': 'application/json',
-              },
-              body: JSON.stringify(product),
-          });
-
-          const data = await response.json();
-          console.log('Response:', data);
-
-          setName('');
-          setCost('');
-          setDescription('');
-          setImagePath('');
-          alert('Product added successfully!');
-      } catch (error) {
-          console.error('Error:', error);
-          alert('Failed to add product. Please try again.');
-      }
-  };
-
-  return (
+  
+      await fetch('http://localhost:3000/product/add', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(product),
+      });
+  
+      setName('');
+      setCost('');
+      setDescription('');
+      setImagePath('');
+    };
+  
+    return (
       <>
-          <Header />
-          <div className="container">
-              <h2>Add a New Product</h2>
-              <form onSubmit={handleSubmit}>
-                  <div className="form-group">
-                      <label>Name:</label>
-                      <input
-                          type="text"
-                          value={name}
-                          onChange={(e) => setName(e.target.value)}
-                          required
-                      />
-                  </div>
-
-                  <div className="form-group">
-                      <label>Cost:</label>
-                      <input
-                          type="number"
-                          value={cost}
-                          onChange={(e) => setCost(e.target.value)}
-                          required
-                      />
-                  </div>
-
-                  <div className="form-group">
-                      <label>Description:</label>
-                      <textarea
-                          value={description}
-                          onChange={(e) => setDescription(e.target.value)}
-                          required
-                      ></textarea>
-                  </div>
-
-                  <div className="form-group">
-                      <label>Image Path:</label>
-                      <input
-                          type="text"
-                          value={imagePath}
-                          onChange={(e) => setImagePath(e.target.value)}
-                          required
-                      />
-                  </div>
-
-                  <button type="submit" className="submit-button">
-                      Add Product
-                  </button>
-              </form>
-          </div>
-          <Footer />
+        <Header />
+        <div className="container">
+          <p>Add a New Product</p>
+          <form onSubmit={handleSubmit}>
+            <div className="form-group">
+              <label>Name:</label>
+              <input
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+              />
+            </div>
+  
+            <div className="form-group">
+              <label>Cost:</label>
+              <input
+                type="number"
+                value={cost}
+                onChange={(e) => setCost(e.target.value)}
+                required
+              />
+            </div>
+  
+            <div className="form-group">
+              <label>Description:</label>
+              <textarea
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+                required
+              ></textarea>
+            </div>
+  
+            <div className="form-group">
+              <label>Image Path:</label>
+              <input
+                type="text"
+                value={imagePath}
+                onChange={(e) => setImagePath(e.target.value)}
+                required
+              />
+            </div>
+  
+            <button type="submit" className="submit-button">
+              Add Product
+            </button>
+          </form>
+        </div>
+        <Footer />
       </>
-  );
-}
-
-export default AddProductForm;
+    );
+  }
+  
+  export default AddProductForm;
