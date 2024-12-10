@@ -5,7 +5,6 @@ import "./styles/style.css";
 import "./styles/header.css";
 import "./styles/footer.css";
 import "./styles/form.css";
-import "./styles/productform.css"
 // import { useForm, Field } from '@tanstack/react-form';
 
 // export default function NewForm() {

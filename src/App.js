@@ -9,6 +9,8 @@ import Table from './pages/NewTable';
 import NewForm from './pages/NewForm';
 import Chart from "./pages/Chart";
 import AllApis from "./pages/AllApis";
+import SignUp from "./pages/SignUp";
+import SignIn from "./pages/SignIn";
 import GoogleMap from "./pages/GoogleMap"; 
 
 const App = () =>{
@@ -24,6 +26,8 @@ const App = () =>{
         <Route path="/form" element={ <NewForm/> } />
         <Route path="/chart" element={ <Chart/> } />
         <Route path="/allapi" element={ <AllApis/> } />
+        <Route path="/signup" element={ <SignUp/> } />
+        <Route path="/signin" element={ <SignIn/> } />
       </Routes>
       
       </div>

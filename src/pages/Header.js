@@ -21,6 +21,8 @@ const Header = () => {
               <Link to="/form" className="dropdown-link">NewForm</Link>
               <Link to="/chart" className="dropdown-link">Chart</Link>
               <Link to="/allapi" className="dropdown-link">AllApis</Link>
+              <Link to="/signup" className="dropdown-link">SignUp</Link>
+              <Link to="/signin" className="dropdown-link">SignIn</Link>
             </div>
           </div>
         </nav>
