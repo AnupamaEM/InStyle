@@ -59,6 +59,35 @@ app.put('/product/update/:id',async(req,res)=>{
     res.json({message:'product updated'});
 });
 
+// sign up
+
+app.post('/signup', async (req, res) => {
+  const { username, email, password } = req.body;
+
+  try {
+    const [id] = await db('users').insert({ username, email, password });
+    res.json({ message: 'User created successfully', id });
+  } catch (error) {
+    console.error('Error:', error);
+    res.status(500).json({ error: 'Failed to create user' });
+  }
+});
+
+//signin
+app.post('/signin', async (req, res) => {
+  const { username, password } = req.body;
+  const user = await db('users').where({ username });
+
+      if (!user) {
+        return res.status(400).json({ message: 'Invalid credentials' });
+      }
+      if (password === user.password) {
+        res.status(200).json({ message: 'Sign-in successful' });
+      } else {
+        res.status(400).json({ message: 'Invalid credentials' });
+      }
+});
+
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
