@@ -46,35 +46,30 @@ import "./styles/form.css";
 //     </>
 //   );
 // }
-
-function AddProductForm() {
+  function AddProductForm() {
     const [name, setName] = useState('');
     const [cost, setCost] = useState('');
     const [description, setDescription] = useState('');
-    const [imagePath, setImagePath] = useState('');
+    const [image, setImage] = useState(null); 
   
     const handleSubmit = async (e) => {
       e.preventDefault();
   
-      const product = {
-        name,
-        cost,
-        description,
-        imagePath,
-      };
+      const formData = new FormData();
+      formData.append('name', name);
+      formData.append('cost', cost);
+      formData.append('description', description);
+      formData.append('image', image); 
   
       await fetch('http://localhost:3000/product/add', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(product),
+        body: formData,
       });
   
       setName('');
       setCost('');
       setDescription('');
-      setImagePath('');
+      setImage(null);
     };
   
     return (
@@ -113,11 +108,10 @@ function AddProductForm() {
             </div>
   
             <div className="form-group">
-              <label>Image Path:</label>
+              <label>Image:</label>
               <input
-                type="text"
-                value={imagePath}
-                onChange={(e) => setImagePath(e.target.value)}
+                type="file"
+                onChange={(e) => setImage(e.target.files[0])} 
                 required
               />
             </div>

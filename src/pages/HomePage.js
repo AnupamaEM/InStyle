@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import "./styles/style.css";
@@ -8,6 +8,28 @@ import "./styles/home.css";
 import ProductList from "./ProductList"; 
 
 const HomePage = () => {
+  const [products, setProducts] = useState([]);
+  const [allProducts, setAllProducts] = useState([]);
+  const [showAll, setShowAll] = useState(false);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await fetch("http://localhost:3000/products");
+        const data = await response.json();
+        setProducts(data.slice(0, 10)); 
+        setAllProducts(data);
+      } catch (error) {
+        console.log("Error fetching products:", error);
+      }
+    };
+    fetchProducts();
+  }, []);
+
+  const handleShowAll = () => {
+    setShowAll(true);
+  };
+
   return (
     <>
       <Header />
@@ -18,10 +40,17 @@ const HomePage = () => {
         </section>
         <section className="featured-products">
           <h3 className="text-center mb-4">Products</h3>
-          <ProductList /> 
+          <ProductList products={showAll ? allProducts : products} />
+          {!showAll && (
+            <div className="text-center">
+              <button className="btn btn-primary" onClick={handleShowAll}>
+                Show All
+              </button>
+            </div>
+          )}
         </section>
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };
