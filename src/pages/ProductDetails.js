@@ -73,7 +73,7 @@ useEffect(() => {
       try {
         const response = await fetch(`http://localhost:3000/product/${id}`);
         const data = await response.json();
-        console.log("Fetched Product:", data[0]); // Debugging log
+        console.log("Fetched Product:", data[0]); 
         setProduct(data[0]);
       } catch (error) {
         console.log("Error fetching product details:", error);
