@@ -11,7 +11,8 @@ import Chart from "./pages/Chart";
 import AllApis from "./pages/AllApis";
 import SignUp from "./pages/SignUp";
 import SignIn from "./pages/SignIn";
-import GoogleMap from "./pages/GoogleMap"; 
+import GoogleMap from "./pages/GoogleMap";
+import ProductDetails from "./pages/ProductDetails"; 
 
 const App = () =>{
   return ( 
@@ -28,6 +29,7 @@ const App = () =>{
         <Route path="/allapi" element={ <AllApis/> } />
         <Route path="/signup" element={ <SignUp/> } />
         <Route path="/signin" element={ <SignIn/> } />
+        <Route path="/product/:id" element={<ProductDetails />} />
       </Routes>
       
       </div>
