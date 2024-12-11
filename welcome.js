@@ -1,10 +1,24 @@
 const express = require('express');
 const knex = require('knex');
 const bodyParser = require('body-parser');
-const app = express(); 
-const PORT = 3000; 
+const multer = require('multer');
+const path = require('path');
 const cors = require('cors');
 
+const app = express(); 
+const PORT = 3000; 
+
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, 'public/images'); 
+    },
+    filename: (req, file, cb) => {
+        const uniqueName = Date.now() + '-' + file.originalname;
+        cb(null, uniqueName); 
+    },
+});
+const upload = multer({ storage }); 
+app.use('/public/images', express.static(path.join(__dirname, 'public/images'))); 
 app.use(express.json());
 app.use(cors()); 
 app.use(bodyParser.json()); 
@@ -24,18 +38,39 @@ app.get('/', (req, res) => {
   res.send('Hai hello'); 
 });
 
+
 // get all products 
 app.get('/products', async (req, res) => {
-      const products = await db('dresses').select('*'); 
-      res.json(products); 
-  });
+    const products = await db('dresses').select('*');     
+    const baseUrl = 'http://localhost:3000'; 
+    const productsWithFullImagePath = products.map(product => ({
+        ...product,
+        imagePath: baseUrl + product.imagePath,
+    }));
+    res.json(productsWithFullImagePath);
+});
+
 
 // get products by id 
 app.get('/product/:id', async (req, res) => {
-    const prid=req.params.id;
-    const product = await db('dresses').where({id:prid}); 
-    res.json(product); 
+  const prid = req.params.id;
+  const baseUrl = 'http://localhost:3000'; 
+  const product = await db('dresses').where({ id: prid });
+
+  if (product.length > 0) {
+     
+      product[0].imagePath = `${baseUrl}/public/images/${product[0].imagePath}`;
+  }
+
+  res.json(product);
 });
+
+// app.get('/product/:id', async (req, res) => {
+//     const prid=req.params.id;
+//     const product = await db('dresses').where({id:prid}); 
+//     res.json(product); 
+// });
+
 
 // delete product by id 
  app.delete('/product/delete/:id',async(req,res) => {
@@ -44,11 +79,15 @@ app.get('/product/:id', async (req, res) => {
     res.json({message:'product deleted'});
  });
 
+
 // post products 
-app.post('/product/add',async(req,res)=>{
-    const { name, cost, imagePath,description } = req.body;
-    const [newProduct] = await db('dresses').insert({name: name,cost: cost,imagePath: imagePath,description:description});
-    res.json({message:'product inserted'});
+app.post('/product/add', upload.single('image'), async (req, res) => {
+    const { name, cost, description } = req.body;
+    const imagePath = `/images/${req.file.filename}`; 
+
+    
+        const [newProduct] = await db('dresses').insert({ name, cost, imagePath, description });
+        res.json({ message: 'Product inserted', productId: newProduct });
 });
 
 // update products 
@@ -59,8 +98,8 @@ app.put('/product/update/:id',async(req,res)=>{
     res.json({message:'product updated'});
 });
 
-// sign up
 
+// sign up
 app.post('/signup', async (req, res) => {
   const { username, email, password } = req.body;
 
@@ -91,3 +130,9 @@ app.post('/signin', async (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
+
+
+
+
+
+
